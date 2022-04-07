@@ -6,3 +6,6 @@
 ## [فاز1](https://github.com/AdvancedProgrammingSUT2022/Project/blob/main/Phase1/main/Phase1.pdf)
 
 ## [توضیحات بازی](https://github.com/AdvancedProgrammingSUT2022/Project/blob/main/Game/main/Game.pdf)
+
+## [توضیحات بازی(انگلیسی)](https://github.com/AdvancedProgrammingSUT2022/Project/blob/main/Game/main/Civ_V_Manual_English.pdf)
+
