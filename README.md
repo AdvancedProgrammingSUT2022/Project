@@ -5,7 +5,7 @@
 
 ## [فاز1](https://github.com/AdvancedProgrammingSUT2022/Project/blob/main/Phase1/main/Phase1.pdf)
 
-## [فاز2](https://github.com/AdvancedProgrammingSUT2022/Project/blob/main/Phase1/main/Phase2.pdf)
+## [فاز2](https://github.com/AdvancedProgrammingSUT2022/Project/blob/main/Phase2/main/Phase2.pdf)
 
 ## [توضیحات بازی](https://github.com/AdvancedProgrammingSUT2022/Project/blob/main/Game/main/Game.pdf)
 
