@@ -1,0 +1,283 @@
+\documentclass[]{article}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[svgnames]{xcolor} 
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage{forest}
+\usepackage{tocloft}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage[many]{tcolorbox}
+\usepackage{listings }
+\usepackage[a4paper, total={6in, 8in} , top = 2cm,bottom = 4cm]{geometry}
+%\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{afterpage}
+\usepackage{amssymb}
+\usepackage{pdflscape}
+\usepackage{textcomp}
+\usepackage{xecolor}
+\usepackage{rotating}
+\usepackage[Kashida]{xepersian}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage{PTSerif} 
+\usepackage{seqsplit}
+\usepackage{changepage}
+
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{sectsty}
+
+\setcounter{secnumdepth}{0}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{blanchedalmond}{rgb}{1.0, 0.92, 0.8}
+\definecolor{brilliantlavender}{rgb}{0.96, 0.73, 1.0}
+ 
+\NewDocumentCommand{\codeword}{v}{
+\texttt{\textcolor{blue}{#1}}
+}
+\lstset{language=sql,keywordstyle={\bfseries \color{blue}}}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\normalsize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+ \settextfont[BoldFont={XB Zar bold.ttf}]{XB Zar.ttf}
+
+
+\setlatintextfont[Scale=1.0,
+ BoldFont={LiberationSerif-Bold.ttf}, 
+ ItalicFont={LiberationSerif-Italic.ttf}]{LiberationSerif-Regular.ttf}
+
+
+
+
+
+\newcommand{\inputsample}[1]{
+    ~\\
+    \textbf{ورودی نمونه}
+    ~\\
+    \begin{tcolorbox}[breakable,boxrule=0pt]
+        \begin{latin}
+            \large{
+                #1
+            }
+        \end{latin}
+    \end{tcolorbox}
+}
+
+\newcommand{\outputsample}[1]{
+    ~\\
+    \textbf{خروجی نمونه}
+
+    \begin{tcolorbox}[breakable,boxrule=0pt]
+        \begin{latin}
+            \large{
+                #1
+            }
+        \end{latin}
+    \end{tcolorbox}
+}
+
+\newcommand{\link}[2]{\href{#1}{\textcolor{blue}{#2}}}
+
+\newtcolorbox{mybox}[2][]{colback=red!5!white,
+colframe=red!75!black,fonttitle=\bfseries,
+colbacktitle=red!85!black,enhanced,
+attach boxed title to top center={yshift=-2mm},
+title=#2,#1}
+
+\newenvironment{changemargin}[2]{%
+\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{#1}%
+\setlength{\rightmargin}{#2}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{\parskip}%
+}%
+\item[]}{\end{list}}
+
+
+\definecolor{foldercolor}{RGB}{124,166,198}
+\definecolor{sectionColor}{HTML}{ff5e0e}
+\definecolor{subsectionColor}{HTML}{008575}
+
+\definecolor{listColor}{HTML}{00d3b9}
+
+\definecolor{umlrelcolor}{HTML}{3c78d8}
+
+\definecolor{subsubsectionColor}{HTML}{3c78d8}
+
+\defpersianfont\authorFont[Scale=0.9]{XB Zar bold.ttf}
+
+\defpersianfont\titr[Scale=1.5]{Lalezar-Regular.ttf}
+
+\defpersianfont\fehrest[Scale=1.2]{Lalezar-Regular.ttf}
+
+\defpersianfont\fehrestTitle[Scale=3.0]{Lalezar-Regular.ttf}
+
+\defpersianfont\fehrestContent[Scale=1.2]{XB Zar bold.ttf}
+
+
+\sectionfont{\color{sectionColor}}  % sets colour of sections
+\subsectionfont{\color{subsectionColor}}  % sets colour of sections
+\subsubsectionfont{\color{subsubsectionColor}}
+
+
+\renewcommand{\labelitemii}{$\circ$}
+
+
+\renewcommand{\baselinestretch}{1.1}
+
+
+\renewcommand{\contentsname}{فهرست}
+
+\renewcommand{\cfttoctitlefont}{\fehrestTitle}
+
+
+\renewcommand\cftsecfont{\color{sectionColor}\fehrestContent\selectfont}
+\renewcommand\cftsubsecfont{\color{subsectionColor}\fehrestContent\selectfont}
+\renewcommand\cftsubsubsecfont{\color{subsubsectionColor}\fehrestContent\selectfont}
+%\renewcommand{\cftsecpagefont}{\color{sectionColor}}
+
+\setlength{\parskip}{1.2pt}
+
+\begin{document}
+
+
+%%% title pages
+\begin{titlepage}
+\begin{center}
+
+\textbf{ \Huge{به نام خدا} }
+        
+\vspace{0.2cm}
+
+\includegraphics[width=0.4\textwidth]{sharif1.png}\\
+\vspace{0.2cm}
+\textbf{ \Huge{\emph درس برنامه‌سازی پیشرفته} }\\
+\vspace{0.25cm}
+\textbf{ \Large{ توضیحات احراز هویت} }
+\vspace{0.2cm}
+       
+ 
+      \large \textbf{دانشکده مهندسی کامپیوتر}\\\vspace{0.1cm}
+    \large   دانشگاه صنعتی شریف\\\vspace{0.2cm}
+       \large   ﻧﯿﻢ سال دوم 01-00 \\\vspace{0.10cm}
+      \noindent\rule[1ex]{\linewidth}{1pt}
+استاد:\\
+    \textbf{{دکتر محمدامین فضلی}}
+
+
+
+    \vspace{0.20cm}
+
+
+    
+
+\end{center}
+\end{titlepage}
+%%% title pages
+
+
+%%% header of pages
+\newpage
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\cfoot{\thepage}
+\lhead{احراز هویت}
+\rhead{\includegraphics[width=0.1\textwidth]{sharif.png}\\
+دانشکده مهندسی کامپیوتر
+}
+\chead{پروژه برنامه‌سازی پیشرفته}
+%%% header of pages
+\renewcommand{\headrulewidth}{2pt}
+
+\KashidaOff
+
+
+
+\tableofcontents
+
+\newpage
+
+ \Large \textbf{\\
+}
+
+
+\section*{{\titr احراز هویت}}
+\addcontentsline{toc}{section}{{\fehrestContent احراز هویت}}
+\subsection*{{\titr مقدمه‌ای بر Authentication و Authorization}}
+\addcontentsline{toc}{subsection}{{\fehrestContent مقدمه‌ای بر Authentication و Authorization}}
+فرض کنید می‌خواهید بازارچه‌ای اینترنتی درست کنید که افراد در آن امکان خرید و فروش کالاهای خود را دارند. از مهم‌ترین نکاتی که باید در نظر بگیرید این است که هر فرد در پلتفرم شما چه هویتی دارد (مشتری است یا فروشنده؟ چه اطلاعات حقوقی یا حقیقی دارد؟ و...)\\
+در قدم بعدی باید به این فکر باشید که هر شخص در پلتفرم چه دسترسی‌هایی با توجه به هویت خود دارد. برای مثال یک مشتری نباید قادر به تغییر قیمت یک کالا باشد! هر فروشنده تنها بتواند کالاهای مربوط به خود و زیرمجموعه‌هایش را ویرایش کند و ...\\
+به اولین مفهوم، Authentication (احراز هویت) و به مفهوم دوم، Authorization (تایید صلاحیت) می‌گویند. بدیهی است به طور کلی فرآیند Authorization باید بعد از Authentication انجام شود.
+
+\subsection*{{\titr Session}}
+\addcontentsline{toc}{subsection}{{\fehrestContent Session}}
+هر session یک فایل به فرمتی شبیه \link{https://www.json.org/json-en.html}{JSON} در سمت سرور است که حاوی اطلاعاتی شامل ID یکتا برای هر کاربر، زمان آخرین لاگین و مدت انقضای آن است. این فایل در سمت سرور ساخته و ذخیره می‌شود و در ادامه با درخواست‌های بعدی، سرور می‌تواند کاربر را شناسایی کند.\\
+ بعد از ساخته شدن این فایل، بعضی از اطلاعات آن مانند ID در قالب \link{https://en.wikipedia.org/wiki/HTTP_cookie}{Cookie} به کاربر فرستاده می‌شود. در ادامه و در هر درخواست، cookie نیز به سرور فرستاده می‌شود و باعث authenticate شدن کاربر در صورت یکسان بودن ID موجود در cookie و ID ذخیره شده در سرور می‌شود.\\
+ذخیره شدن اطلاعات session در سمت سرور، مزایا و معایبی به دنبال دارد. از مزایای این روش می‌توان به در دسترس بودن همه session ها برای administrator های شبکه اشاره کرد. Admin شبکه می‌تواند در صورت مشاهده هر حرکت مشکوک، session را حذف کند و فرایند احراز هویت کاربر را ملغی کند.\\
+در سمت دیگر، این ذخیره شدن در سمت سرور، باعث افزایش لود سرور می‌شود و کارایی آن را پایین می‌آورد.\\
+از حملات معروفی که سیستم‌های \lr{Session Based} در معرض آن‌ها هستند می‌توان به \link{https://en.wikipedia.org/wiki/Cross-site_request_forgery}{\lr{Cross-site request forgery}} و \link{https://en.wikipedia.org/wiki/Man-in-the-middle_attack}{\lr{Man-in-the-middle}} اشاره کرد.
+
+\subsection*{{\titr Authentication Token-Based}}
+\addcontentsline{toc}{subsection}{{\fehrestContent Authentication Token-Based}}
+با مفهوم \lr{Session-Based Authentication} آشنا شدید و به معایب آن پی بردید. از جمله این که وقتی کاربر وارد می‌شود یک \lr{Session ID} در دیتابیس ذخیره می‌شود. با هر درخواست کاربر سرور باید برای بررسی صحت \lr{Session ID} به دیتابیس مراجعه کند که این زمان‌بر است. همچنین با افزایش تعداد کاربران مشکل Scale شدن سرور به وجود می‌آید و …
+
+در این بخش با روشی آشنا می‌شویم که می‌تواند درخواست به دیتابیس را به حداقل برساند، مشکل Scale شدن سرورها را حل کند و حتّی بدون هزینه اضافه روی سرور تاریخ انقضایی بر روی آخرین ورود کاربر تعریف کند!
+
+فرآیند احراز هویت با توکن بدین صورت است که ابتدا کاربر نام کاربری و رمزعبورش را به سرور می‌فرستد و به عنوان پاسخ یک توکن تعریف می‌کند. سپس با این توکن می‌تواند تا مدت معینی اعمال مورد نیازش را انجام دهد. زمانی هم که توکن منقضی شد، دوباره با فرستادن اطلاعات هویتی می‌تواند توکن جدیدی دریافت کند. بدین صورت نیاز نیست با هر درخواست، نام کاربری و رمزعبورش را هم ارسال کند.
+
+از استانداردهای معروف مورد استفاده برای این امر \lr{JSON Web Token} یا به اختصار JWT است. ابتدا بهتر است با مفهوم \link{https://vrgl.ir/eAxIC}{Hash} آشنا شوید و سپس به عنوان نمونه با یکی از الگوریتم‌های رمزنگاری معروف با نام \link{https://sha256algorithm.com/}{SHA-256} کار کنید. حال که کمی با مفهوم رمزنگاری آشنا شدید، می‌توانید \link{https://www.youtube.com/watch?v=7Q17ubqLfaM}{این ویدئو} در مورد JWT را مشاهده کنید و در نهایت با \link{https://jwt.io/}{یک نمونه} از آن دست و پنجه نرم کنید.
+
+\subsection*{{\titr Permissions and Authorize}}
+\addcontentsline{toc}{subsection}{{\fehrestContent Permissions and Authorize}}
+
+به فرایند تخصیص دسترسی به منابع (Resources) مختلف مانند فایل‌ها، سرویس‌ها، برنامه‌هایی که روی سیستم نصب شده‌اند و داده‌ها به کاربران، Authorization گفته می‌شود. این فرایند، زیر شاخه امنیت اطلاعات (\lr{Information Security}) می‌باشد. یکی از معروف‌ترین مثال‌ها در مبحث Authorization، مدیر سیستم (admin یا superuser) می‌باشد که دسترسی به اطلاعات بقیه کاربران و تغییر اطلاعات و … را دارد.\\
+سیستم‌های تامین امنیت امروزی ابتدا فرایند احراز هویت (authentication) و سپس دسترسی به منابع (authorization) را اجرا می‌کنند و در نهایت، اجازه کار با سیستم را به کاربر می‌دهند.
+هر دسترسی به یک منبع، Permission نام دارد. هر دسترسی نیر قابلیت‌هایی به کاربر می‌دهد؛ پس هر کاربر با یک Permission خاص، قابلیت انجام یک operation خاص در سیستم را دارد.\\
+برای مثال، در یک دیتابیس می‌توان دسترسی‌های یک کاربر را تغییر داد. اگر بخواهیم در یک دیتابیس \lr{Postgres}، به یک کاربر تنها دسترسی read بدهیم (تنها بتواند کوئری بزند و داده‌ها را دریافت کند) می‌توانیم از دستور زیر استفاده کنیم:
+    \LTR
+	\begin{latin}
+\begin{lstlisting}
+GRANT SELECT ON ALL TABLES IN SCHEMA <schema-name> TO <user-name>a
+\end{lstlisting}
+	\end{latin}
+	\RTL
+
+
+
+\end{document}
+
+
+
+
+
+
+

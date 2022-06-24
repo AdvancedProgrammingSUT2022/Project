@@ -1,0 +1,368 @@
+% !TEX program = xelatex
+\documentclass[]{article}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[svgnames]{xcolor} 
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage{forest}
+\usepackage{tocloft}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage[many]{tcolorbox}
+\usepackage{listings }
+\usepackage[a4paper, total={6in, 8in} , top = 2cm,bottom = 4cm]{geometry}
+%\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{afterpage}
+\usepackage{amssymb}
+\usepackage{pdflscape}
+\usepackage{textcomp}
+\usepackage{xecolor}
+\usepackage{rotating}
+\usepackage[Kashida]{xepersian}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage{PTSerif} 
+\usepackage{seqsplit}
+\usepackage{changepage}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{sectsty}
+
+\setcounter{secnumdepth}{0}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{blanchedalmond}{rgb}{1.0, 0.92, 0.8}
+\definecolor{brilliantlavender}{rgb}{0.96, 0.73, 1.0}
+ 
+\NewDocumentCommand{\codeword}{v}{
+\texttt{\textcolor{blue}{#1}}
+}
+\newcommand{\link}[2]{\href{#1}{\textcolor{blue}{#2}}}
+\lstset{language=sql,keywordstyle={\bfseries \color{blue}}}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\normalsize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+ \settextfont[BoldFont={XB Zar bold.ttf}]{XB Zar.ttf}
+
+
+\setlatintextfont[Scale=1.0,
+ BoldFont={LiberationSerif-Bold.ttf}, 
+ ItalicFont={LiberationSerif-Italic.ttf}]{LiberationSerif-Regular.ttf}
+
+
+
+
+
+\newcommand{\inputsample}[1]{
+    ~\\
+    \textbf{ورودی نمونه}
+    ~\\
+    \begin{tcolorbox}[breakable,boxrule=0pt]
+        \begin{latin}
+            \large{
+                #1
+            }
+        \end{latin}
+    \end{tcolorbox}
+}
+
+\newcommand{\outputsample}[1]{
+    ~\\
+    \textbf{خروجی نمونه}
+
+    \begin{tcolorbox}[breakable,boxrule=0pt]
+        \begin{latin}
+            \large{
+                #1
+            }
+        \end{latin}
+    \end{tcolorbox}
+}
+
+\newtcolorbox{mybox}[2][]{colback=red!5!white,
+colframe=red!75!black,fonttitle=\bfseries,
+colbacktitle=red!85!black,enhanced,
+attach boxed title to top center={yshift=-2mm},
+title=#2,#1}
+
+\newenvironment{changemargin}[2]{%
+\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{#1}%
+\setlength{\rightmargin}{#2}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{\parskip}%
+}%
+\item[]}{\end{list}}
+
+
+\definecolor{foldercolor}{RGB}{124,166,198}
+\definecolor{sectionColor}{HTML}{ff5e0e}
+\definecolor{subsectionColor}{HTML}{008575}
+
+\definecolor{listColor}{HTML}{00d3b9}
+
+\definecolor{umlrelcolor}{HTML}{3c78d8}
+
+\definecolor{subsubsectionColor}{HTML}{3c78d8}
+
+\defpersianfont\authorFont[Scale=0.9]{XB Zar bold.ttf}
+
+\defpersianfont\titr[Scale=1.5]{Lalezar-Regular.ttf}
+
+\defpersianfont\fehrest[Scale=1.2]{Lalezar-Regular.ttf}
+
+\defpersianfont\fehrestTitle[Scale=3.0]{Lalezar-Regular.ttf}
+
+\defpersianfont\fehrestContent[Scale=1.2]{XB Zar bold.ttf}
+
+
+\sectionfont{\color{sectionColor}}  % sets colour of sections
+\subsectionfont{\color{subsectionColor}}  % sets colour of sections
+\subsubsectionfont{\color{subsubsectionColor}}
+
+
+\renewcommand{\labelitemii}{$\circ$}
+
+
+\renewcommand{\baselinestretch}{1.1}
+
+
+\renewcommand{\contentsname}{فهرست}
+
+\renewcommand{\cfttoctitlefont}{\fehrestTitle}
+
+
+\renewcommand\cftsecfont{\color{sectionColor}\fehrestContent\selectfont}
+\renewcommand\cftsubsecfont{\color{subsectionColor}\fehrestContent\selectfont}
+\renewcommand\cftsubsubsecfont{\color{subsubsectionColor}\fehrestContent\selectfont}
+%\renewcommand{\cftsecpagefont}{\color{sectionColor}}
+
+\setlength{\parskip}{1.2pt}
+
+\begin{document}
+
+
+%%% title pages
+\begin{titlepage}
+\begin{center}
+
+\textbf{ \Huge{به نام خدا} }
+        
+\vspace{0.2cm}
+
+\includegraphics[width=0.4\textwidth]{sharif1.png}\\
+\vspace{0.2cm}
+\textbf{ \Huge{\emph درس برنامه‌سازی پیشرفته} }\\
+\vspace{0.25cm}
+\textbf{ \Large{ فاز سوم پروژه} }
+\vspace{0.2cm}
+       
+ 
+      \large \textbf{دانشکده مهندسی کامپیوتر}\\\vspace{0.1cm}
+    \large   دانشگاه صنعتی شریف\\\vspace{0.2cm}
+       \large   ﻧﯿﻢ سال دوم 01-00 \\\vspace{0.10cm}
+      \noindent\rule[1ex]{\linewidth}{1pt}
+استاد:\\
+    \textbf{{دکتر محمدامین فضلی}}
+
+
+
+    \vspace{0.20cm}
+
+   مهلت ارسال:\\
+    \textbf{{چک پوینت 1: 18 تیر}}\\
+    \textbf{{فاز سوم: 25 تیر}}\\
+    \textbf{{ساعت 23:59:59}}
+
+    \vspace{0.10cm}
+مسئول پروژه:\\
+    \textbf{\authorFont{امیرمهدی کوششی}}
+    
+        \vspace{0.10cm}
+مسئول فاز سوم:\\
+    \textbf{\authorFont{علیرضا ایجی}}
+    
+        \vspace{0.10cm}
+طراحان فاز سوم:\\
+    \textbf{\authorFont{پرهام باطنی، عرفان مجیبی، بنیامین ملکی، محمد ایزدی، محمدمهدی صادقی، پردیس زهرایی، ابوالفضل قلندری، حسین علی‌حسینی، امین احمدزاده، نگاه باباشاه، محمدمهدی به‌نصر}}
+    
+        \vspace{0.05cm}
+مسئولین تنظیم مستند:\\
+    \textbf{\authorFont{امیرمهدی کوششی، هیربد بهنام، ناصر کاظمی، علی ثالثی}}
+    
+
+\end{center}
+\end{titlepage}
+%%% title pages
+
+
+%%% header of pages
+\newpage
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\cfoot{\thepage}
+\lhead{فاز سوم}
+\rhead{\includegraphics[width=0.1\textwidth]{sharif.png}\\
+دانشکده مهندسی کامپیوتر
+}
+\chead{پروژه برنامه‌سازی پیشرفته}
+%%% header of pages
+\renewcommand{\headrulewidth}{2pt}
+
+\KashidaOff
+
+
+
+\tableofcontents
+
+\newpage
+
+ \Large \textbf{\\\\
+}
+
+
+\section*{{\titr نکات قابل توجه}}
+\addcontentsline{toc}{section}{{\fehrestContent نکات قابل توجه}}
+\begin{itemize}
+\item
+پس از اتمام این فاز، در گیت خود یک تگ با ورژن \lr{"v3.0.0"} بزنید. در روز تحویل حضوری این tag بررسی خواهد شد و کدهای پس از آن نمره‌ای نخواهد گرفت. برای اطلاعات بیش‌تر در مورد شیوه ورژن‌گذاری، می‌توانید به
+ \link{https://semver.org/}{\textcolor{blue}{\underline{این لینک}}}
+ مراجعه کنید. البته برای این پروژه صرفا رعایت کردن همان ورژن گفته شده کافیست، اما خوب‌ است که با منطق ورژن‌بندی هم آشنا بشوید.
+
+\item
+در روز تحویل حضوری مشارکت تمام اعضای تیم در پروژه بررسی خواهد‌ شد و در صورت عدم مشارکت بعضی از اعضا، نمره‌ی ایشان برای آن فاز پروژه "صفر" لحاظ می‌گردد. مشارکت، با توجه به commit های افراد تیم در مخزن گیت‌هاب پروژه بررسی می‌شود.
+
+\item
+توجه کنید که به دلیل نزدیک بودن به مهلت ارسال نمرات، امکان تاخیر برای فاز سوم وجود ندارد.
+
+\item
+در صورت کشف تقلب از هریک از تیم‌ها، برای بار اول منفی نمرهٔ آن فاز برای آن تیم ثبت می‌شود و برای بار دوم، نمرهٔ منفی کل پروژه برای تیم لحاظ خواهد‌ شد که معادل مردود شدن در درس است.
+
+\end{itemize}
+
+\newpage
+
+\section*{{\titr مقدمه}}
+\addcontentsline{toc}{section}{{\fehrestContent مقدمه}}
+
+همانطور که می‌دانید، در دو فاز قبلی بدنه‌ی اصلی مورد نیاز برای اجرای بازی روی یک کامپیوتر را پیاده سازی کردیم؛ یعنی بخش های مربوط به منطق و گرافیی بازی که برای کامل بودن بازی کافی هستند. پس در این بخش می‌خواهیم چه کنیم؟ قرار است قابلیت هایی را به بازی‌مان اضافه کنیم تا بشود بر بستر اینترنت هم بازی را اجرا و با بقیه بازیکنان از راه دور بازی کرد. همچنین این فاز بخش های امتیازی متنوع و زیادی دارد که برای جبران نمرات از دست رفته در دو فاز قبلی می‌توانید از آن ها استفاده کنید..
+
+
+\section*{{\titr چک پوینت اول}}
+\addcontentsline{toc}{section}{{\fehrestContent چک پوینت اول}}
+\subsection*{{\titr معماری Server-Client}}
+\addcontentsline{toc}{subsection}{{\fehrestContent معماری Server-Client}}
+معماری کارخواه ‐ کارگزار یا Server-Client و معماری همتا به همتا Peer-to-Peer معروف ترین معماری های شبکه‌های کامپیوتری هستند. در معماری Server-Client، کاربران معمولی کلاینت نامیده شده و هر کدام از آن ها درخواست هایی را برای سرور ارسال می‌کنند. سرور به منابع و اطلاعات اصلی برنامه دسترسی دارد و پردازش های اصلی داده ها در آن انجام شده و در نهایت نتیجه به شکل مناسبی به کلاینت اطلاع داده می شود. برای این فاز پروژه، توصیه می‌شود از معماری کلاینت سرور استفاده نمایید. به این شکل که سرور، اطلاعات اصلی نظیر بازی‌های در حال انجام و... را در اختیار داشته و بسته به درخواست هایی که برای آن ارسال می‌شود، پاسخ مناسب را برای هر کلاینت ارسال می‌کند. به بیان دیگر، بخش عمده منطق برنامه باید در سمت سرور رسیدگی شود. برای آشنایی بیشتر با این معماری و نحوه پیاده‌سازی آن، داک شبکه را مطالعه کنید.
+
+\subsection*{{\titr احراز هویت}}
+\addcontentsline{toc}{subsection}{{\fehrestContent احراز هویت}}
+به داک احراز هویت مراجعه کنید.
+
+
+\section*{{\titr فاز سوم}}
+\addcontentsline{toc}{section}{{\fehrestContent فاز سوم}}
+
+\subsection*{{\titr چت}}
+\addcontentsline{toc}{subsection}{{\fehrestContent چت}}
+در فاز2 یک گرافیک برای منوی چت خود طراحی کردید، در این فاز شما باید به تکمیل منطق چت بپردازید تا این منو به درستی کار کند.\\
+\begin{itemize}
+    \item چت روم شما باید ۳ بخش مختلف داشته باشد : public chat - private chats - rooms
+    \item در بخش chat public ، تمام بازیکنان میتوانند بدون محدودیت با همدیگر صحبت کنند و پیام بفرستند .
+    \item در بخش chats private ، هر بازیکن میتواند بازیکن دیگری را بر حسب نام او در بازی ، search کند و با او وارد یک چت خصوصی شود .
+    \item در بخش rooms ، هر بازیکن میتواند تعدادی room با نام های مختلف ایجاد کند و در هر room ، بازیکنان دیگری را که میخواهد ( با search کردن نام آنها ) به آن room اضافه کند و با آنها چت کند ( مشابه chat group در اپلیکیشن های معروف ! )
+    \item در هر بخش ، کاربر باید توانایی edit کردن پیام های خود ، پاک کردن پیام های خود ( برای خودش ) و پاک کردن پیام های خود (برای خودش و دیگران) را داشته باشد
+    \item هر پیام باید حاوی این اطلاعات باشد : نام فرستنده - زمان ارسال - متن پیام - آواتار شخص فرستنده - علامتی برای نمایش اینکه پیام ارسال شده است - علامتی برای اینکه پیام seen شده است ( مشابه اپلیکیشین های چت معروف ) 
+    \item دقت کنید که تمام اطلاعات (history) مربوط به چت های مختلف ، باید پس از بستن بازی و باز کردن دوباره ی آن ، حفظ شود . برای این کار میتوانید از ذخیره سازی اطلاعات مربوطه در فایل و خواندن مجدد اطلاعات از فایل ، استفاده کنید .
+
+\end{itemize}
+
+
+\subsection*{{\titr جدول امتیازات}}
+\addcontentsline{toc}{subsection}{{\fehrestContent جدول امتیازات}}
+به جدول امتیازاتی که در فازهای قبلی پیاده کرده‌اید باید چند ویژگی جدید اضافه کنید:
+\begin{itemize}
+    \item نمایش آنلاین یا آفلاین بودن افراد
+    \item آپدیت شدن خودکار اطلاعات جدول در صورت تغییر (مثلا اگر امتیاز یک نفر تغییر کند جدول باید در لحظه آپدیت شود- یا یک نفر که آفلاین بوده است آنلاین شود)
+    \item قابلیت مشاهده ویدئو آخرین بازی 10 نفر برتر(امتیازی)
+\end{itemize}
+
+
+\subsection*{{\titr دوستی}}
+\addcontentsline{toc}{subsection}{{\fehrestContent دوستی}}
+در این فاز باید این قابلیت را پیاده سازی کنید که هر کاربر بتواند به کاربران دیگر درخواست دوستی بدهد و در صورت موافقت طرف مقابل، به لیست دوستان کاربر درخواست دهنده و کاربردی که درخواست را قبول کرده است اضافه می‌شود. 
+قابلیت ارسال درخواست دوستی باید حداقل در حالت‌های زیر وجود داشته باشد:
+\begin{itemize}
+    \item سرچ کردن نام کاربری یک بازیکن، مشاهده پروفایل وی و ارسال درخواست دوستی
+    \item هر منویی که قابلیت مشاهده پروفایل در آن وجود دارد(شامل چت و جدول امتیازات)
+\end{itemize}
+ توجه کنید هر کاربر می‌تواند حداکثر 100 دوست داشته باشد. لیست دوستان هر فرد در منوی پروفایل باید قابل مشاهده باشد. لیست درخواست‌های دوستی در حالت انتظار(تایید یا رد) نیز در منوی پروفایل باید وجود داشته باشد.
+
+
+\subsection*{{\titr لابی}}
+\addcontentsline{toc}{subsection}{{\fehrestContent لابی}}
+برای اینکه بازیکنان بتوانند با فرد دیگری بازی کنند نیاز به یک منوی جدید به نام لابی داریم. بازیکنان برای بازی یا باید خود یک درخواست بازی ثبت کرده و منتظر رقیب بمانند یا می‌توانند یکی از گروه‌هایی که قبلا درخواست داده‌اند را انتخاب کند و به گروه بازی آن‌ها بپیوندد. کسی که درخواست بازی را ثبت می‌کند باید همان ابتدا مشخص کند که بازی ۳،۲ یا ... نفره خواهد بود (تعداد را باید مشخص کند.) پس از ثبت درخواست یک بازی به لیست بازی‌های داخل این منو اضافه می‌شود که اطلاعات آن از قبیل ظرفیت بازی و nickname بازیکنان آماده برای آن بازی مشخص است. از این پس بازیکنان دیگر نیز می‌توانند به این بازی اضافه شوند و هنگامی که ظرفیت بازی تکمیل شود سرور برای آن‌ها یک بازی جدید می‌سازد و بازی شروع می‌شود. همچنین کسی که بازی را ساخته است(admin) باید بتواند بازی را زودتر از اینکه ظرفیت مشخص شده کامل شود نیز شروع کند تنها با این شرط که حداقل یک نفر دیگر در گروه مربوط به بازی او باشد. نکته‌‌ی دیگری که باید توجه داشته باشید این است که هر بازیکنی که داخل یک گروه بازی اضافه می‌شود باید بتواند قبل از شروع بازی با زدن دکمه‌ای از گروه آن بازی خارج شود و همچنین اگر admin یک گروه بازی از آن گروه خارج شود نفر بعدی داخل گروه admin می‌شود و در صورتی که بازیکن دیگری در گروه نباشد گروه بازی بسته می‌شود و از لیست داخل منوی لابی آن بازی حذف می‌شود. به طور کلی هر بازیکنی که از یک گروه بازی انصراف می‌دهد یا اتصالش قطع می‌شود باید از گروه بازی حذف شود و اگر admin باشد نفر بعدی آن گروه admin شود.
+از قابلیت‌های دیگری که باید این منو داشته باشد این است که باید برای لیست گروه‌های بازی که در این منو نمایش داده می‌شود یک دکمه refresh قرار دهید که هر بار که بازیکن این دکمه را فشار می‌دهد لیست بازی‌ها رفرش شوند به صورت رندوم ۱۰ گروه بازی به بازیکن نمایش داده شود.\\
+
+موارد امتیازی:
+\begin{itemize}
+    \item افراد هر گروه بازی بتوانند داخل چت روم مخصوص به گروه بازی با هم چت کنند.
+    \item برای هر گروه بازی هنگام ساخته شدن یک شناسه یکتا ساخته شود و بازیکنان بتوانند بر اساس شناسه داخل این منو، بازی مطلوب خود را پیدا کنند. در واقع به کمک این شناسه بازیکنان هر گروه بازی می‌توانند داخل چت روم گلوبال از بازیکنان دیگر دعوت کنند که با آن‌ها بازی کنند. به این صورت که بازیکنان دیگر بتوانند با سرچ آن شناسه در این منو به گروه بازی اضافه شوند.
+    \item admin هر گروه بازی بتواند گروه را private یا public کند. به این صورت که در صورتی که private باشد تنها افراد با شناسه بتوانند به این گروه وارد شوند و همچنین اطلاعات گروه، داخل لیست گروه‌های بازی داخل لابی نمایش داده نشود و اگر از private به public وضعیت گروه تغییر داده شود از آن به بعد افراد دیگر نیز بتواند بدون شناسه و از طریق لیست گروه‌های بازی به بازی اضافه شوند. کاربرد اصلی private کردن گروه به این منظور است که admin بتواند شناسه را به دوست‌های خود داخل چت روم private بفرستد و تنها با آن‌ها بازی کند.
+    \item برای جلوگیری از به وجود آمدن گروه‌های بازی اضافی، اگر داخل یک گروه بازی به مدت ۵ دقیقه بازیکنی وارد نشود سرور باید گروه بازی را ببندد تا از به وجود آمدن گروه‌های اضافه‌ای که قصد بازی ندارند، جلوگیری شود.
+
+\end{itemize}
+
+
+
+\subsection*{{\titr ادامه بازی ناتمام (امتیازی)}}
+\addcontentsline{toc}{subsection}{{\fehrestContent ادامه بازی ناتمام (امتیازی)}}
+اگر در میان یک بازی ارتباط یک بازیکن با سرور قطع شود به مدت محدودی(مثلا حداکثر دو دقیقه) فرصت دارد تا دوباره به بازی متصل شود. به این صورت که اگر قبل از دو دقیقه دوباره به سرور متصل شود، پس از لاگین به ادامه بازی می‌پردازد و در غیر این صورت از بازی حذف می‌شود و در صورت دو نفره بودن آن بازی نفر دیگر برنده اعلام می‌شود و در غیر این صورت بازی بین نفرات باقی‌مانده ادامه می‌یابد با این تفاوت که دیگر نوبتی برای نفر حذف‌شده در نظر گرفته نمی‌شود.
+
+
+
+\subsection*{{\titr پخش تلویزیون (امتیازی)}}
+\addcontentsline{toc}{subsection}{{\fehrestContent پخش تلویزیون (امتیازی)}}
+تلویزیون بخش جدیدی است که در این فاز اضافه شده است. این بخش دارای دو قسمت پخش زنده ی بازی ها و بازپخش بازی های قبلی کاربر می باشد. توضیحات این دو بخش به این صورت است:
+
+\subsubsection*{{\titr پخش زنده ی بازی‌ها}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent پخش زنده ی بازی‌ها}}
+هدف این قسمت به اشتراک گذاری برخط بازی هاست و در واقع این قابلیت را به وجود می آورد که بتوان به صورت زنده بازی را تماشا کرد.هر کاربری که در حال بازی کردن است می تواند بازی خود را به صورت زنده استریم کند. یک روش پیشنهادی برای پیاده سازی این بخش ثبت گزارش (log) است. در این روش ابتدا حالت اولیه بازی (شامل منابع، شهرها، یگان ها و... ) ذخیره می شود و سپس تمامی حرکات بعدی ذخیره می شوند. به عبارت دیگر پس از هر اتفاق، جزئیات آن در قالب مشخصی ذخیره می شود. سپس چون حالت اولیه ی بازی را می دانیم برای هر کاربری که قصد مشاهده ی پخش زنده را داشته باشد، یک نمونه از بازی را می سازیم و تمامی حرکات را براساس این گزارش ها اجرا می کنیم تا به حالت فعلی بازی برسیم. به همین شکل اگر به طور مداوم با استفاده از ادامه ی گزارش ها بازی را برای کاربر بسازیم، پخش زنده ادامه پیدا می کند و با تمام شدن گزارش ها بازی خاتمه پیدا می کند و استریم متوقف می شود.
+
+
+\subsubsection*{{\titr بازپخش بازی های قبلی}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent بازپخش بازی های قبلی}}
+ در این بخش کاربر می تواند بازی های قبلی خود را دوباره مشاهده و بررسی کند.در اینجا نیز می توانید از روش پیشنهادی ثبت گزارش ها (log) بازی های قبلی خود را ذخیره کنید و در هر حرکت، به حرکت های قبلی و بعدی در بازی دست یابید. همچنین این حرکت ها می توانند به صورت خودکار نیز پشت سر هم پخش شوند.
+ 
+ 
+\subsection*{{\titr پایگاه داده (امتیازی)}}
+\addcontentsline{toc}{subsection}{{\fehrestContent پایگاه داده (امتیازی)}}
+شما میتوانید برای ذخیره‌سازی اطلاعات مورد نیازی که قبلا در فایل ذخیره میکردید، از پایگاه داده‌های دیگر نیز استفاده کنید. برای اطلاعات بیشتر به داک پایگاه داده مراجعه کنید.
+\end{document}
